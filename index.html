@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orry for Triumviraat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h1>I WANT IN!</h1>
+		<h3>Orry for Triumviraat</h3>
+		<button class="js-the-button">Wat doet deze button?</button>
+		<h2 class="nothing">ABSOLUUT NIETS!</h2>
+	</div>
+
+	<script>
+		var body = $('body'),
+			contianer = $('.container'),
+			button = $('.js-the-button'),
+			nothing = $('.nothing'),
+			big = true;
+
+		button.click( function() {
+			button.hide();
+			nothing.show();
+			setInterval(function() {
+				if (big) nothing.css('font-size','2.8rem');
+				else nothing.css('font-size','3.6rem');
+				big = !big;
+			},500);
+		});
+
+		var interval = setInterval(function() {
+			body.css('background-color', getRandomColor());
+			contianer.css('color', getRandomColor());
+			button.css('color', getRandomColor());
+		},100);
+
+		function getRandomColor() {
+			var hex = '0123456789ABCDEF',
+				color = '#';
+
+			for (var i = 0; i < 6; i++) {
+				color += hex[Math.floor(Math.random() * 16)];
+			}
+
+			return color;
+		}
+	</script>
+	
+</body>
+</html>
